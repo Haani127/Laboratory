@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up & Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e9eaea;
+            font-family: roboto, sans-serif;
+            user-select: none;
+        }
+
+        .wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 450px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup, .login {
+            width: 50%;
+            background: #fff;
+            float: left;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .signup.active, .login.active {
+            background: #34b3a0;
+            color: #fff;
+        }
+
+        .signup-form, .login-form {
+            background: #fff;
+            padding: 40px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 350px;
+            display: none;
+        }
+
+        .input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #e9eaea;
+            color: #3e3e40;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .input:focus {
+            border: 2px solid #34b3a0;
+        }
+
+        .btn {
+            width: 100%;
+            background: #34b3a0;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        span a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #3e3e40;
+            font-family: roboto, sans-serif;
+        }
+
+        .youtube {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 160px;
+            text-align: center;
+            padding: 15px 10px;
+            background: #bb0000;
+            border-radius: 5px;
+        }
+
+        .youtube a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="signup active">Sign Up</div>
+            <div class="login">Log In</div>
+
+            <div class="signup-form">
+                <input type="text" placeholder="Your Email Address" class="input"><br>
+                <input type="text" placeholder="Choose a Username" class="input"><br>
+                <input type="password" placeholder="Choose a Password" class="input"><br>
+                <div class="btn">Create Account</div>
+            </div>
+
+            <div class="login-form">
+                <input type="text" placeholder="Email or Username" class="input"><br>
+                <input type="password" placeholder="Password" class="input"><br>
+                <div class="btn">Log In</div>
+                <span><a href="#">I forgot my username or password.</a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="youtube">
+        <a href="https://www.youtube.com/channel/UCtVM2RthR4aC6o7dzySmExA" target="_blank">by coding market</a>
+    </div>
+
+    <!-- jQuery for Switching Forms -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".signup-form").show(); // Show Sign Up form by default
+
+            $(".signup").click(function(){
+                $(".signup-form").show();
+                $(".login-form").hide();
+                $(".signup").addClass("active");
+                $(".login").removeClass("active");
+            });
+
+            $(".login").click(function(){
+                $(".login-form").show();
+                $(".signup-form").hide();
+                $(".login").addClass("active");
+                $(".signup").removeClass("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
